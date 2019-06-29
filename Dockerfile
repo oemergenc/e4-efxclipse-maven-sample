@@ -3,7 +3,7 @@ FROM openjdk:8
 RUN apt-get update && apt-get install -y --no-install-recommends openjfx maven git && rm -rf /var/lib/apt/lists/* 
 
 RUN mkdir /root/build
-RUN git clone --depth=50 --branch=feature/travisfy https://github.com/oemergenc/e4-efxclipse-maven-sample.git /root/build
+RUN git clone --depth=50 https://github.com/oemergenc/e4-efxclipse-maven-sample.git /root/build
 
 WORKDIR /root/build
 

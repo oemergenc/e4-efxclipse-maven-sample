@@ -1,7 +1,7 @@
 package sample.mvn.lib;
 
 public class HelloWorldHelper {
-
+    public static final String Hello = "Hello World";
 
     public static void helloWorld() {
 //        org.apache.spark.util.Clock clock = new ManualClock();

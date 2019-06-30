@@ -32,5 +32,25 @@
             <artifactId>spock-core</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>at.bestsolution.fx.test</groupId>
+            <artifactId>at.bestsolution.fx.test.junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>at.bestsolution.fx.test</groupId>
+            <artifactId>at.bestsolution.fx.test.e4.junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>at.bestsolution.fx.test</groupId>
+            <artifactId>at.bestsolution.fx.test.junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>at.bestsolution.fx.test</groupId>
+            <artifactId>at.bestsolution.fx.test.rcontrol</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 </project>

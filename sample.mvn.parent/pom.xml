@@ -16,11 +16,19 @@
     <properties>
         <osgi.qualifier>${maven.build.timestamp}</osgi.qualifier>
         <maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+        <tycho-version>1.0.0</tycho-version>
+        <junit-version>4.11</junit-version>
+        <mockito-version>1.8.4</mockito-version>
+        <platform-version>4.2</platform-version>
+        <efx-version>1.0.0</efx-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <fx.testArgLine>-Dorg.osgi.framework.bundle.parent=ext</fx.testArgLine>
     </properties>
 
     <modules>
         <module>sample.mvn.app</module>
         <module>sample.mvn.lib</module>
+        <module>sample.mvn.lib.integration</module>
         <module>sample.mvn.spark</module>
         <module>sample.mvn.feature</module>
         <module>sample.mvn.product</module>
@@ -124,6 +132,7 @@
                 <configuration>
                     <includes>
                         <include>**/*Spec.java</include>
+                        <include>**/*Test.java</include>
                     </includes>
                 </configuration>
             </plugin>
@@ -263,6 +272,30 @@
                 <groupId>org.spockframework</groupId>
                 <artifactId>spock-core</artifactId>
                 <version>1.1-groovy-2.4</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>at.bestsolution.fx.test</groupId>
+                <artifactId>at.bestsolution.fx.test.junit</artifactId>
+                <version>0.0.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>at.bestsolution.fx.test</groupId>
+                <artifactId>at.bestsolution.fx.test.e4.junit</artifactId>
+                <version>0.0.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>at.bestsolution.fx.test</groupId>
+                <artifactId>at.bestsolution.fx.test.junit</artifactId>
+                <version>0.0.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>at.bestsolution.fx.test</groupId>
+                <artifactId>at.bestsolution.fx.test.rcontrol</artifactId>
+                <version>0.0.1</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>

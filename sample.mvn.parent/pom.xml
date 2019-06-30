@@ -16,12 +16,15 @@
     <properties>
         <osgi.qualifier>${maven.build.timestamp}</osgi.qualifier>
         <maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
+        <tycho-version>1.0.0</tycho-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <modules>
         <module>sample.mvn.app</module>
         <module>sample.mvn.lib</module>
         <module>sample.mvn.spark</module>
+        <module>sample.mvn.junit</module>
         <module>sample.mvn.feature</module>
         <module>sample.mvn.product</module>
 
@@ -103,11 +106,31 @@
                     </archive>
                 </configuration>
             </plugin>
-            <!-- plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId>
-                <executions> <execution> <id>attach-sources</id> <goals> <goal>jar</goal>
-                </goals> </execution> </executions> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId> <executions> <execution> <id>attach-javadocs</id>
-                <goals> <goal>jar</goal> </goals> </execution> </executions> </plugin -->
+
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>addTestSources</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Spec.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -146,5 +169,57 @@
             </properties>
         </profile>
     </profiles>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.testfx</groupId>
+                <artifactId>testfx-core</artifactId>
+                <version>4.0.15-alpha</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.testfx</groupId>
+                <artifactId>testfx-spock</artifactId>
+                <version>4.0.15-alpha</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>2.4.11</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.spockframework</groupId>
+                <artifactId>spock-core</artifactId>
+                <version>1.1-groovy-2.4</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+<!--    <dependencies>-->
+<!--        <dependency>-->
+<!--            <groupId>org.testfx</groupId>-->
+<!--            <artifactId>testfx-core</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.testfx</groupId>-->
+<!--            <artifactId>testfx-spock</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.codehaus.groovy</groupId>-->
+<!--            <artifactId>groovy-all</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.spockframework</groupId>-->
+<!--            <artifactId>spock-core</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+<!--    </dependencies>-->
 
 </project>
